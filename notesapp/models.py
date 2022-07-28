@@ -9,3 +9,9 @@ class Note(models.Model):
     slug_title = models.SlugField(max_length=500)
     date_created = models.DateTimeField(auto_now_add=True)
     last_modified = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return f"{self.name}"
+
+    def has_been_modified(self):
+        return last_modified > date_created
