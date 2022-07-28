@@ -59,11 +59,11 @@ def register(request): # Registration View
 @require_http_methods(["GET", "POST"])
 def login(request): # Login View
     if request.method == "POST":
-        user_form = auth_forms.LoginForm(request.POST)
+        login_form = auth_forms.LoginForm(request.POST)
 
         if user_form.is_valid():
-            username = user_forms.cleaned_data["username"]
-            password = user_forms.cleaned_data["password"]
+            username = login_form.cleaned_data["username"]
+            password = login_form.cleaned_data["password"]
             
             user = auth.authenticate(username=username, password=password)
 
