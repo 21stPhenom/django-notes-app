@@ -1,0 +1,19 @@
+{% extends 'notesapp/base.html' %}
+
+{% block title %}{{note.name}} | Notes{% endblock title %}
+
+{% block body %}
+<h3>Title: {{ note.name }}</h3>
+
+<h4>Content:</h4>
+<p>{{note.content}}</p>
+
+<p>Slug title: {{note.slug_title}}</p>
+
+<p>Date Created: {{note.date_created}}</p>
+<p>Last Modified on: {{note.last_modified}}</p>
+
+<a href="{% url 'notesapp:edit_note' %}"><button>Edit Note</button></a>
+<a href="{% url 'notesapp:delete_note' %}"><button>Delete Note</button></a>
+
+{% endblock body %}

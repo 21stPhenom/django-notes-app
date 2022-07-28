@@ -1,0 +1,33 @@
+{% extends 'notesapp/base.html' %}
+
+{% block title %}View Notes | Notes{% endblock title %}
+
+{% block body %}
+    {% if note_count == 0 %}
+        <h3>You have no note.</h3>
+    {% endif %}
+
+    {% if note_count ==1 %}
+        <h3>You have 1 note.</h3>
+        <ul>
+            {% for i in notes %}
+            <li>{{ note }}</li>
+            {% endfor %}
+        </ul>
+
+    {% else %}
+        <h3>You have {{note_count}} notes</h3>
+
+        <ul>
+            {% for note in notes %}
+            <li>{{note}}</li>
+            <a href="{% url 'notesapp:view_note' %}"><button>View Note</button></a>
+            <a href="{% url 'notesapp:delete_note' %}"><button>Delete Note</button></a>
+            {% endfor %}            
+        </ul>
+    {% endif %}
+<ul>
+
+</ul>
+
+{% endblock body %}

@@ -1,0 +1,14 @@
+{% extends 'notesapp/base.html' %}
+
+{% block title %}Add Note | Notes{% endblock title %}
+
+{% block body %}
+<form action="{% url 'notesapp:add_note' %}" method="post">
+    {% csrf_token %}
+
+    {{ note_form }}
+
+    <input type="submit" value="Add Note">
+</form>
+
+{% endblock body %}
