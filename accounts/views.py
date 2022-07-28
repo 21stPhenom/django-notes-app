@@ -61,7 +61,7 @@ def login(request): # Login View
     if request.method == "POST":
         login_form = auth_forms.LoginForm(request.POST)
 
-        if user_form.is_valid():
+        if login_form.is_valid():
             username = login_form.cleaned_data["username"]
             password = login_form.cleaned_data["password"]
             
