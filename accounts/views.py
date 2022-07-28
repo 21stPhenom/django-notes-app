@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User, auth
-from djago.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required
 from django.views.decorators.http import require_http_methods
-import forms as auth_forms
+from . import forms as auth_forms
 
 # Create your views here.
 @require_http_methods(["GET"])
