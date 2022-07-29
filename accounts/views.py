@@ -88,9 +88,8 @@ def login(request): # Login View
         return render(request, "accounts/login.html", context)
 
 @require_http_methods(["GET"])
-@login_required
+@login_required(login_url="accounts:login")
 def logout(request): # Logout View
-    user = request.user
-    auth.logout(user)
+    auth.logout(request)
     print("User logged out!")
-    return render(request, "notesapp:index")
+    return redirect("notesapp:index")
