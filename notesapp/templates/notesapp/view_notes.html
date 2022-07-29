@@ -5,24 +5,26 @@
 {% block body %}
     {% if note_count == 0 %}
         <h3>You have no note.</h3>
-    {% endif %}
 
-    {% if note_count ==1 %}
+    {% elif note_count == 1 %}
         <h3>You have 1 note.</h3>
         <ul>
-            {% for i in notes %}
+            {% for note in notes %}
             <li>{{ note }}</li>
+            <a href="{% url 'notesapp:view_note' note.slug_title %}"><button>View Note</button></a>
+            <a href="{% url 'notesapp:delete_note' note.slug_title %}"><button>Delete Note</button></a>
+            
             {% endfor %}
         </ul>
 
     {% else %}
-        <h3>You have {{note_count}} notes</h3>
+        <h3>You have {{note_count}} notes.</h3>
 
         <ul>
             {% for note in notes %}
             <li>{{note}}</li>
-            <a href="{% url 'notesapp:view_note' %}"><button>View Note</button></a>
-            <a href="{% url 'notesapp:delete_note' %}"><button>Delete Note</button></a>
+            <a href="{% url 'notesapp:view_note' note.slug_title %}"><button>View Note</button></a>
+            <a href="{% url 'notesapp:delete_note' note.slug_title %}"><button>Delete Note</button></a>
             {% endfor %}            
         </ul>
     {% endif %}

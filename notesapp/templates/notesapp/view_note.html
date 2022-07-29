@@ -13,7 +13,7 @@
 <p>Date Created: {{note.date_created}}</p>
 <p>Last Modified on: {{note.last_modified}}</p>
 
-<a href="{% url 'notesapp:edit_note' %}"><button>Edit Note</button></a>
-<a href="{% url 'notesapp:delete_note' %}"><button>Delete Note</button></a>
+{#<a href="{% url 'notesapp:edit_note' %}"><button>Edit Note</button></a>#}
+<a href="{% url 'notesapp:delete_note' note.slug_title%}"><button>Delete Note</button></a>
 
 {% endblock body %}

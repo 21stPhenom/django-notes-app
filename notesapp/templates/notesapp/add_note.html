@@ -6,7 +6,7 @@
 <form action="{% url 'notesapp:add_note' %}" method="post">
     {% csrf_token %}
 
-    {{ note_form }}
+    {{ note_form.as_p }}
 
     <input type="submit" value="Add Note">
 </form>
